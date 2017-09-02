@@ -3,6 +3,7 @@ import { NavController, LoadingController, AlertController } from 'ionic-angular
 import { Http } from '@angular/http';
 
 import { SelectedCarPage } from '../selected-car/selected-car';
+import { Car } from '../../domain/car';
 
 @Component({
   selector: 'page-home',
@@ -10,7 +11,7 @@ import { SelectedCarPage } from '../selected-car/selected-car';
 })
 export class HomePage implements OnInit {
 
-  public cars : any = [];
+  public cars: Car[] = [];
 
   constructor(
     public navCtrl: NavController,
@@ -18,7 +19,7 @@ export class HomePage implements OnInit {
     private _loadingCtrl: LoadingController,
     private _alertCtrl: AlertController) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
 
     let loader = this._loadingCtrl.create({
       content: 'Buscando novos carros. Aguarde ...'
@@ -30,8 +31,8 @@ export class HomePage implements OnInit {
       .get('https://aluracar.herokuapp.com/')
       .map(res => res.json())
       .toPromise()
-      .then(carros => {
-        this.cars = carros;
+      .then(data => {
+        this.cars = data;
         loader.dismiss();
       })
       .catch(err => {
@@ -46,7 +47,7 @@ export class HomePage implements OnInit {
       });
   }
 
-  getCar(car) {
+  getCar(car): void {
     this.navCtrl.push(SelectedCarPage, { selectedCar: car });
   }
 

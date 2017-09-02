@@ -23,9 +23,17 @@
                     <ion-icon ios="ios-options" md="md-options" item-left></ion-icon>
                     ACESSÓRIOS
                 </ion-item-divider>
-                <ion-item>Acessório 1</ion-item>
-                <ion-item>Acessório 2</ion-item>
+                <ion-item *ngFor="let accessorie of accessories">
+                    <ion-label>
+                        <h2>{{ accessorie.name }}</h2>
+                        <h3>R$ {{ accessorie.price }}</h3>
+                    </ion-label>
+                    <ion-toggle #toggle color="secondary" (ionChange)="updateTotalPrice(toggle,accessorie)"></ion-toggle>
+                </ion-item>
             </ion-item-group>
+            <ion-item-divider color="light">                
+                TOTAL: R$ {{ getTotalPrice() }}
+            </ion-item-divider>
         </ion-card-content>
     </ion-card>
     <button ion-button block>Avançar no agendamento</button>
