@@ -3,6 +3,7 @@ import { NavController, LoadingController, AlertController } from 'ionic-angular
 import { Http } from '@angular/http';
 
 import { SelectedCarPage } from '../selected-car/selected-car';
+
 import { Car } from '../../domain/car';
 
 @Component({
@@ -10,9 +11,9 @@ import { Car } from '../../domain/car';
   templateUrl: 'home.html'
 })
 export class HomePage implements OnInit {
-
+  
   public cars: Car[] = [];
-
+  
   constructor(
     public navCtrl: NavController,
     private _http: Http,
@@ -50,5 +51,4 @@ export class HomePage implements OnInit {
   getCar(car): void {
     this.navCtrl.push(SelectedCarPage, { selectedCar: car });
   }
-
 }

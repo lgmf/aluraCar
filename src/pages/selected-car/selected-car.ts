@@ -9,7 +9,7 @@ import { Car } from '../../domain/car';
   templateUrl: 'selected-car.html',
 })
 export class SelectedCarPage implements OnInit {
-
+  
   protected selectedCar: Car = null;
   protected accessories: Accessorie[] = [];
   private _totalPrice: number = 0.0;
