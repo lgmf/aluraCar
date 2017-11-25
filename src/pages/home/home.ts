@@ -23,7 +23,7 @@ export class HomePage implements OnInit {
   ngOnInit(): void {
 
     let loader = this._loadingCtrl.create({
-      content: 'Buscando novos carros. Aguarde ...'
+      content: 'Buscando carros disponíveis. Aguarde ...'
     });
 
     loader.present();

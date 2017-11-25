@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Estamos quase lá!</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h2>{{ registry.carro.nome }}</h2>
+    <p>{{ registry.precoTotal }}</p>
+    <form (submit)="finishRegistry()">
+        <ion-item>
+            <ion-label stacked>Nome</ion-label>
+            <ion-input name="Name" [(ngModel)]="registry.nome"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Email</ion-label>
+            <ion-input name="Email" [(ngModel)]="registry.email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Data</ion-label>
+            <ion-datetime name="Date" displayFormat="DD/MM/YYYY" [(ngModel)]="registry.dataAgendamento"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Endereço</ion-label>
+            <ion-input name="Address" [(ngModel)]="registry.endereco"></ion-input>
+        </ion-item>
+        <button type="submit" ion-button block>Finalizar</button>
+    </form>
+</ion-content>

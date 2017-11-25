@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -7,8 +8,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { SelectedCarPage } from '../pages/selected-car/selected-car';
+import { RegistryPage } from '../pages/registry/registry';
+import { RegistryService } from '../pages/registry/registry.service';
 
-import { HttpModule } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
@@ -16,7 +18,8 @@ import 'rxjs/add/operator/toPromise';
   declarations: [
     MyApp,
     HomePage,
-    SelectedCarPage
+    SelectedCarPage,
+    RegistryPage
   ],
   imports: [
     BrowserModule,
@@ -27,11 +30,13 @@ import 'rxjs/add/operator/toPromise';
   entryComponents: [
     MyApp,
     HomePage,
-    SelectedCarPage
+    SelectedCarPage,
+    RegistryPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    RegistryService,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

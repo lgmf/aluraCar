@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { Accessorie } from '../../domain/acessorie';
 import { Car } from '../../domain/car';
+import { RegistryPage } from "../registry/registry";
 
 @Component({
   selector: 'page-selected-car',
@@ -34,5 +35,12 @@ export class SelectedCarPage implements OnInit {
 
   updateTotalPrice(toogle, accessorie): void {
     (toogle.checked) ? this._totalPrice += accessorie.price : this._totalPrice -= accessorie.price;
+  }
+
+  goToRegistry(): void{
+    this.navCtrl.push(RegistryPage,{
+        selectedCar: this.selectedCar,
+        totalPrice: this._totalPrice
+    });
   }
 }
